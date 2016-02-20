@@ -12,6 +12,7 @@ RUN pip3 install sqlalchemy-migrate
 RUN pip3 install beautifulsoup4
 RUN pip3 install --upgrade pyflakes
 RUN pip3 install MechanicalSoup
+RUN pip3 install tweepy
 
 RUN apt-get update\
  && apt-get install ${OPTS_APT}\

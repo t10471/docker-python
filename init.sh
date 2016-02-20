@@ -14,7 +14,10 @@ git clone --depth 1 git@github.com:neologd/mecab-ipadic-neologd.git
 cd mecab-ipadic-neologd
 yes | ./bin/install-mecab-ipadic-neologd -n
 
-# mecab -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd
+ln -s /var/lib/mecab/dic/ipadic-utf8 /usr/local/lib/mecab/dic/ipadic
+from="^dicdir\s*=\s*/usr/local/lib/mecab/dic/ipadic"
+to="dicdir =  /usr/local/lib/mecab/dic/mecab-ipadic-neologd"
+sed -i -e"s#$from#$to#" /usr/local/etc/mecabrc
 
 pip3 install mecab-python3
 
@@ -40,4 +43,6 @@ make install
 cd python
 python setup.py install
 ldconfig
+echo 'mecabrc = /usr/local/etc/mecabrc' >> /usr/local/etc/cabocharc
+
 
