@@ -16,6 +16,7 @@ RUN pip3 install tweepy
 
 RUN apt-get update\
  && apt-get install ${OPTS_APT}\
-      swig
+      swig \
+      ctags
 
 ADD init.sh /root/init.sh
